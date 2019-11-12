@@ -1,0 +1,25 @@
+def exps(array, val):
+    i = 0
+    a = 1
+    dis = len(array)
+    while True:
+        if val > array[i]:
+            if i + a == dis and a == 1:
+                array.append(val)
+                break
+            elif i + a >= dis:
+                i = i - int(a / 2) + 1
+                a = 1
+            else:
+                i += a
+                a *= 2
+        elif val < array[i]:
+            if a == 1:
+                array.insert(i, val)
+                break
+            else:
+                i = i - int(a / 2) + 1
+                a = 1
+        else:
+            array.insert(i, val)
+            break
